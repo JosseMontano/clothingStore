@@ -1,11 +1,37 @@
 <script lang="ts">
+  // ========= LIBS SVELTE =========
+  import { onMount } from "svelte";
   import CatsComponent from "./components/Cats.svelte";
 
+  // ========= CATS =========
   let sectionCurrent = "Todos";
-
   const handleChangeCat = (cat: string) => {
     sectionCurrent = cat;
   };
+
+  // ========= SHOW PRODUCTS =========
+  interface ProductsType {
+    id: number;
+    name: string;
+    description: string;
+    photo: string;
+  }
+
+  let productsData: ProductsType[] = [];
+  const handleGetProducts = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/clothing");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      productsData = await response.json();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  onMount(() => {
+    handleGetProducts();
+  });
 </script>
 
 <main class="container__dad">
@@ -16,6 +42,16 @@
 
     <div>
       <p>Catch: {sectionCurrent}</p>
+      {#each productsData as product}
+        <div>
+          <img
+            width="200"
+            height="200"
+            src={product.photo}
+            alt={product.name}
+          />
+        </div>
+      {/each}
     </div>
   </div>
 </main>
