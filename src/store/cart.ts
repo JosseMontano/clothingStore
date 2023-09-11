@@ -6,5 +6,4 @@ interface CartItem {
   quantity: number;
 }
 
-
 export const cart = writable<CartItem[]>([]);
