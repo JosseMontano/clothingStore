@@ -2,6 +2,8 @@
   // ========= LIBS SVELTE =========
   import { onMount } from "svelte";
   import CatsComponent from "./components/Cats.svelte";
+  import type { ProductsType } from "./interfaces/ProducsType";
+  import Card from "./components/Card.svelte";
 
   // ========= CATS =========
   let sectionCurrent = "Todos";
@@ -10,12 +12,6 @@
   };
 
   // ========= SHOW PRODUCTS =========
-  interface ProductsType {
-    id: number;
-    name: string;
-    description: string;
-    photo: string;
-  }
 
   let productsData: ProductsType[] = [];
   const handleGetProducts = async () => {
@@ -39,18 +35,11 @@
     <h1 class="title">Clothes Stores</h1>
 
     <CatsComponent {handleChangeCat} {sectionCurrent} />
-
-    <div>
-      <p>Catch: {sectionCurrent}</p>
+    <p>Catch: {sectionCurrent}</p>
+    <div class="cards">
+   
       {#each productsData as product}
-        <div>
-          <img
-            width="200"
-            height="200"
-            src={product.photo}
-            alt={product.name}
-          />
-        </div>
+        <Card {product} />
       {/each}
     </div>
   </div>
@@ -71,5 +60,10 @@
     font-size: 32px;
     font-weight: bold;
     color: #4b2b7a;
+  }
+
+  .cards{
+    display: flex;
+    gap:10px
   }
 </style>
