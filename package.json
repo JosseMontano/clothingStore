@@ -20,6 +20,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "json-server": "^0.17.3"
+    "json-server": "^0.17.3",
+    "svelte-routing": "^2.3.0"
   }
 }

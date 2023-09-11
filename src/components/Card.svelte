@@ -14,15 +14,16 @@
   .card {
     position: relative;
     border-radius: 15px;
+    cursor: pointer;
   }
 
   .title {
     position: absolute;
     right: 10px;
     top: 10px;
-    background-color: #b62e66;
+    background-color: var(--secondary);
     padding: 5px;
-    color: #fff;
+    color: var(--white);
     border-radius: 25%;
     font-size: 12px;
   }
@@ -35,7 +36,7 @@
     position: absolute;
     bottom: 5px;
     left: 10px;
-    color: #fff;
+    color: var(--white);
     font-size: 22px;
   }
 </style>

@@ -50,8 +50,8 @@
 
   .section--active {
     background-color: #f2f2f2;
-    color: #4b2b7a;
-    border-bottom: 1px solid #4b2b7a;
-    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
+    font-weight: 500;
   }
 </style>

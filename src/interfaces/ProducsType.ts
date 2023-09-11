@@ -3,4 +3,5 @@ export interface ProductsType {
   name: string;
   description: string;
   photo: string;
+  type: string;
 }
