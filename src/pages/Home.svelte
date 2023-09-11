@@ -81,7 +81,7 @@
     {/each}
 
     {#each $cart as item (item.id)}
-      <li>{item.name} (Quantity: {item.quantity})</li>
+      <div>{item.name} (Quantity: {item.quantity})</div>
     {/each}
   </div>
 </div>
